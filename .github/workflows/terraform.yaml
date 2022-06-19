@@ -20,6 +20,13 @@ jobs:
         id: fmt
         run: terraform fmt -check
 
+      - name: Download Morpheus Provider
+        run: |
+          curl -LO https://github.com/gomorpheus/terraform-provider-morpheus/releases/download/v0.4.3/terraform-provider-morpheus_0.4.3_linux_amd64.zip
+          mkdir -p terraform.d/plugins/morpheusdata.com/gomorpheus/morpheus/0.4.3/linux_amd64
+          unzip terraform-provider-morpheus_0.4.3_linux_amd64.zip -d terraform.d/plugins/morpheusdata.com/gomorpheus/morpheus/0.4.3/linux_amd64
+          chmod +x terraform.d/plugins/morpheusdata.com/gomorpheus/morpheus/0.4.3/linux_amd64/terraform-provider-morpheus_v0.4.3
+
       - name: Terraform Init
         id: init
         run: terraform init
