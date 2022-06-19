@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "greenreedtech"
+
+    workspaces {
+      name = "morpheus-terraform-config"
+    }
+  }
   required_providers {
     morpheus = {
       source  = "morpheusdata.com/gomorpheus/morpheus"
