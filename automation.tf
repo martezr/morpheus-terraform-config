@@ -68,3 +68,10 @@ resource "morpheus_execute_schedule" "tech_marketing_daily_ami_cleanup" {
   time_zone   = "America/Denver"
   schedule    = "0 7 * * *"
 }
+
+resource "morpheus_operational_workflow" "tech_marketing_self_service_op_workflow" {
+  name                = "Tech Marketing Self Service Operational Workflow"
+  description         = "Tech Marketing operational workflow"
+  platform            = "all"
+  visibility          = "private"
+}
