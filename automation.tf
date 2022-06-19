@@ -66,5 +66,5 @@ resource "morpheus_execute_schedule" "tech_marketing_daily_ami_cleanup" {
   description = "This schedule runs daily at 7 AM Mountain Time"
   enabled     = true
   time_zone   = "America/Denver"
-  schedule    = "7 0 * * *"
+  schedule    = "0 7 * * *"
 }
