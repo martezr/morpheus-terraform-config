@@ -9,6 +9,9 @@ jobs:
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_morpheus_url: ${{ secrets.TF_VAR_MORPHEUS_URL }}
+      TF_VAR_morpheus_access_token: ${{ secrets.TF_VAR_MORPHEUS_ACCESS_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
