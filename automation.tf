@@ -13,8 +13,7 @@ from morpheuscypher import Cypher
 
 # Expiration days
 expiration_days = 30
-timeLimit = datetime.datetime.now() - 
-datetime.timedelta(days=expiration_days)
+timeLimit = datetime.datetime.now() - datetime.timedelta(days=expiration_days)
 data = []
 
 # Fetch AWS account credentials from Cypher
@@ -35,13 +34,11 @@ for ami in response['Images']:
     row.append(ami['Name'])
     row.append(ami['ImageId'])
 
-    # Convert the AMI creation date to a date format to compare with the 
-current date
+    # Convert the AMI creation date to a date format to compare with the current date
     creation_date_raw=ami['CreationDate']
     creation_date_raw_1=tuple(creation_date_raw.split('T'))
     creation_date=creation_date_raw_1[0]
-    creation_date_object = datetime.datetime.strptime(creation_date, 
-'%Y-%m-%d').date()
+    creation_date_object = datetime.datetime.strptime(creation_date, '%Y-%m-%d').date()
     row.append(creation_date_object)
     if creation_date_object <  timeLimit.date():
         row.append(True)
